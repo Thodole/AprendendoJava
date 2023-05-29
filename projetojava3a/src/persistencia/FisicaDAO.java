@@ -132,25 +132,27 @@ public class FisicaDAO {
 
     }
 
-    public static int altera(Fisica fisica) throws Exception {
+    public static int altera(Fisica fisica, String novoCpf) throws Exception {
 
         int ret = 0;
 
         try {
 
-            String sql = "UPDATE Fisica SET nome = ?, idade = ?, atendente_matr = ? WHERE cpf = ?";
+            String sql = "UPDATE Fisica SET cpf = ?, nome = ?, idade = ?, atendente_matr = ? WHERE cpf = ?";
 
             connection = GerenteDeConexao.getConnection();
 
             st = connection.prepareStatement(sql);
 
-            st.setString(1, fisica.getNome());
+            st.setString(1, novoCpf);
+            
+            st.setString(2, fisica.getNome());
 
-            st.setInt(2, fisica.getIdade());
+            st.setInt(3, fisica.getIdade());
 
-            st.setInt(3, fisica.getAtendente().getMatr());
+            st.setInt(4, fisica.getAtendente().getMatr());
 
-            st.setString(4, fisica.getCpf());
+            st.setString(5, fisica.getCpf());
 
             ret = st.executeUpdate();
 

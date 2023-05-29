@@ -19,10 +19,10 @@ public class TestaFisicaDAOaltera {
         Atendente atendente = new Atendente();
         atendente.setMatr(1);
         fisica.setAtendente(atendente);
-        
+                
         fisica.setCpf("99999999999");
         
-        System.out.println(FisicaDAO.altera(fisica));
+        System.out.println(FisicaDAO.altera(fisica, "88888888888"));
     }
     
 }

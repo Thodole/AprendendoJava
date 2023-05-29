@@ -44,7 +44,7 @@ public class AtendenteDAO {
 
             st.close();
 
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch (SQLException e) {
 
             System.out.println(e.getMessage());
 
@@ -177,45 +177,76 @@ public class AtendenteDAO {
         return ret;
 
     }
-    
+
     public static List<Atendente> leMaioresQue2() throws Exception {
+        
         List<Atendente> listAtendentes = new ArrayList<>();
+        
         try {
+            
             String sql = "SELECT * FROM atendente WHERE matr >= 2";
+            
             connection = GerenteDeConexao.getConnection();
+            
             st = connection.prepareStatement(sql);
+            
             rs = st.executeQuery();
+            
             while (rs.next()) {
+                
                 Atendente a = new Atendente();
+                
                 a.setMatr(rs.getInt("matr"));
+                
                 a.setNome(rs.getString("nome"));
+                
                 listAtendentes.add(a);
             }
+            
             st.close();
-        } catch (ClassNotFoundException | SQLException e) {
+            
+        } catch (SQLException e) {
+            
             System.out.println(e.getMessage());
         }
+        
         return listAtendentes;
     }
-    
+
     public static List<Atendente> leTodosPrimeiraLetraP() throws Exception {
+        
         List<Atendente> listAtendentes = new ArrayList<>();
+        
         try {
+            
             String sql = "SELECT * FROM atendente WHERE nome LIKE 'P%'";
+            
             connection = GerenteDeConexao.getConnection();
+            
             st = connection.prepareStatement(sql);
+            
             rs = st.executeQuery();
+            
             while (rs.next()) {
+                
                 Atendente a = new Atendente();
+                
                 a.setMatr(rs.getInt("matr"));
+                
                 a.setNome(rs.getString("nome"));
+                
                 listAtendentes.add(a);
             }
+            
             st.close();
-        } catch (ClassNotFoundException | SQLException e) {
+            
+        } catch (SQLException e) {
+            
             System.out.println(e.getMessage());
         }
+        
         return listAtendentes;
+        
     }
-    
+
 }

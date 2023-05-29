@@ -213,18 +213,20 @@ public class AtendenteDAO {
         return listAtendentes;
     }
 
-    public static List<Atendente> leTodosPrimeiraLetraP() throws Exception {
+    public static List<Atendente> leTodosPrimeiraLetra(char caractere) throws Exception {
         
         List<Atendente> listAtendentes = new ArrayList<>();
         
         try {
             
-            String sql = "SELECT * FROM atendente WHERE nome LIKE 'P%'";
+            String sql = "SELECT * FROM atendente WHERE nome LIKE ?";
             
             connection = GerenteDeConexao.getConnection();
             
             st = connection.prepareStatement(sql);
-            
+
+            st.setString(1, caractere + "%");
+
             rs = st.executeQuery();
             
             while (rs.next()) {

@@ -2,13 +2,13 @@ package testes.atendente;
 
 import persistencia.AtendenteDAO;
 
-public class TestaAtendenteDAOleTodosPrimeiraLetraP {
+public class TestaAtendenteDAOleTodosPrimeiraLetra {
 
     /**
      * @param args the command line arguments
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        System.out.println(AtendenteDAO.leTodosPrimeiraLetraP());
+        System.out.println(AtendenteDAO.leTodosPrimeiraLetra('M'));
     }
 }

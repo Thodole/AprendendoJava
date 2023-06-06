@@ -11,9 +11,10 @@ public class TestaAtendenteDAOgrava {
      */
     public static void main(String[] args) throws Exception {
         Atendente atendente = new Atendente();
-        atendente.setMatr(10);
-        atendente.setNome("Joaquim");
+        atendente.setMatr(2);
+        atendente.setNome("Maria da Silva");
         
         System.out.println(AtendenteDAO.grava(atendente));
     }
 }
+

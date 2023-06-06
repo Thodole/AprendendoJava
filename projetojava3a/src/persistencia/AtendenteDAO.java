@@ -96,7 +96,7 @@ public class AtendenteDAO {
 
         try {
 
-            String sql = "INSERT INTO Atendente (matr,nome) VALUES (?, ?)";
+            String sql = "INSERT INTO Atendente (matr, nome) VALUES (?, ?)";
 
             connection = GerenteDeConexao.getConnection();
 
@@ -249,6 +249,126 @@ public class AtendenteDAO {
         
         return listAtendentes;
         
+    }
+    
+    public static int alteraMatr(int matr, int novaMatr) throws Exception {
+
+        int ret = 0;
+
+        try {
+
+            String sql = "UPDATE atendente SET matr = ? WHERE matr = ?";
+
+            connection = GerenteDeConexao.getConnection();
+
+            st = connection.prepareStatement(sql);
+
+            st.setInt(1, novaMatr);
+
+            st.setInt(2, matr);
+
+            ret = st.executeUpdate();
+
+            st.close();
+
+        } catch (SQLException e) {
+
+            System.out.println(e.getMessage());
+
+        }
+
+        return ret;
+
+    }
+    
+    public static int alteraMatrNome(int matr, int novaMatr, String novoNome) throws Exception {
+
+        int ret = 0;
+
+        try {
+
+            String sql = "UPDATE atendente SET matr = ?, nome = ? WHERE matr = ?";
+
+            connection = GerenteDeConexao.getConnection();
+
+            st = connection.prepareStatement(sql);
+
+            st.setInt(1, novaMatr);
+            
+            st.setString(2, novoNome);
+
+            st.setInt(3, matr);
+
+            ret = st.executeUpdate();
+
+            st.close();
+
+        } catch (SQLException e) {
+
+            System.out.println(e.getMessage());
+
+        }
+
+        return ret;
+
+    }
+    
+    public static int excluiTodosEntre(int prim, int ulti) throws Exception {
+
+        int ret = 0;
+
+        try {
+
+            String sql = "DELETE FROM atendente WHERE matr BETWEEN ? AND ?";
+
+            connection = GerenteDeConexao.getConnection();
+
+            st = connection.prepareStatement(sql);
+
+            st.setInt(1, prim);
+            
+            st.setInt(2, ulti);
+
+            ret = st.executeUpdate();
+
+            st.close();
+
+        } catch (SQLException e) {
+
+            System.out.println(e.getMessage());
+
+        }
+
+        return ret;
+
+    }
+    
+    public static int excluiTodosPrimeiraLetra(char letra) throws Exception {
+
+        int ret = 0;
+
+        try {
+
+            String sql = "DELETE FROM atendente WHERE nome LIKE ?";
+
+            connection = GerenteDeConexao.getConnection();
+
+            st = connection.prepareStatement(sql);
+
+            st.setString(1, letra + "%");
+
+            ret = st.executeUpdate();
+
+            st.close();
+
+        } catch (SQLException e) {
+
+            System.out.println(e.getMessage());
+
+        }
+
+        return ret;
+
     }
 
 }

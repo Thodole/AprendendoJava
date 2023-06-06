@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import modelo.Atendente;
 import modelo.Juridica;
 
 public class JuridicaDAO {
@@ -192,6 +193,150 @@ public class JuridicaDAO {
 
         return ret;
 
+    }
+    
+    public static List<Juridica> lePorCnpj(String cnpj1, String cnpj2) throws Exception {
+
+        List<Juridica> listJuridicas = new ArrayList<>();
+
+        try {
+
+            String sql = "SELECT * FROM juridica WHERE cnpj IN(?, ?) ";
+
+            connection = GerenteDeConexao.getConnection();
+
+            st = connection.prepareStatement(sql);
+
+            st.setString(1, cnpj1);
+            
+            st.setString(2, cnpj2);
+            
+            rs = st.executeQuery();
+
+            while (rs.next()) {
+
+                Juridica juridica = new Juridica();
+
+                juridica.setCnpj(rs.getString("cnpj"));
+
+                juridica.setNome(rs.getString("nome"));
+
+                juridica.setIdade(rs.getInt("idade"));
+
+                juridica.setAtendente(AtendenteDAO.leUm(rs.getInt("atendente_matr")));
+
+                listJuridicas.add(juridica);
+
+            }
+
+            st.close();
+
+        } catch (Exception e) {
+
+            System.out.println(e.getMessage());
+
+        }
+
+        return listJuridicas;
+
+    }
+    
+    public static List<Juridica> lePorCnpjOuIdade(String cnpj, int idade) throws Exception {
+        
+        List<Juridica> listJuridicas = new ArrayList<>();
+
+        try {
+
+            String sql = "SELECT * FROM juridica WHERE cnpj = ? OR idade > ?";
+
+            connection = GerenteDeConexao.getConnection();
+
+            st = connection.prepareStatement(sql);
+
+            st.setString(1, cnpj);
+            
+            st.setInt(2, idade);
+            
+            rs = st.executeQuery();
+
+            while (rs.next()) {
+
+                Juridica juridica = new Juridica();
+
+                juridica.setCnpj(rs.getString("cnpj"));
+
+                juridica.setNome(rs.getString("nome"));
+
+                juridica.setIdade(rs.getInt("idade"));
+
+                juridica.setAtendente(AtendenteDAO.leUm(rs.getInt("atendente_matr")));
+
+                listJuridicas.add(juridica);
+
+            }
+
+            st.close();
+
+        } catch (Exception e) {
+
+            System.out.println(e.getMessage());
+
+        }
+
+        return listJuridicas;
+        
+    }
+    
+    public static List<Juridica> leTodosInnerJoin(int matr1, int matr2, int idade) throws Exception {
+        
+        List<Juridica> listaFisica = new ArrayList<>();
+        
+        try {
+            
+            String sql = "SELECT a.matr, a.nome, j.cnpj, j.nome, j.idade " +
+                         "FROM atendente a INNER JOIN juridica j " +
+                         "ON a.matr = j.Atendente_matr " +
+                         "WHERE a.matr IN (?, ?) AND j.idade = ?";
+            
+            connection = GerenteDeConexao.getConnection();
+            
+            st = connection.prepareStatement(sql);
+            
+            st.setInt(1, matr1);
+            
+            st.setInt(2, matr2);
+            
+            st.setInt(3, idade);
+            
+            rs = st.executeQuery();
+            
+            while (rs.next()) {
+                
+                Juridica jur = new Juridica();
+                
+                jur.setCnpj(rs.getString("j.cnpj"));
+                
+                jur.setNome(rs.getString("j.nome"));
+                
+                jur.setIdade(rs.getInt("j.idade"));
+                
+                Atendente atendente = new Atendente(rs.getInt("a.matr"), rs.getString("a.nome"));
+                
+                jur.setAtendente(atendente);
+                
+                listaFisica.add(jur);
+            }
+            
+            st.close();
+            
+        } catch (SQLException e) {
+            
+            System.out.println(e.getMessage());
+            
+        }
+        
+        return listaFisica;
+        
     }
 
 }

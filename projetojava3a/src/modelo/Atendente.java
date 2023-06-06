@@ -40,7 +40,7 @@ public class Atendente {
 
     @Override
     public String toString() {
-        return "\nMatrícula:          " + getMatr()
-                + "\nNome:               " + getNome();
+        return   "\nMatrícula:          " + getMatr()
+               + "\nNome:               " + getNome();
     }
 }

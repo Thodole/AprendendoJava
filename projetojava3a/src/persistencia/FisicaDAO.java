@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import modelo.Atendente;
 import modelo.Fisica;
 
 public class FisicaDAO {
@@ -194,6 +195,98 @@ public class FisicaDAO {
 
         return ret;
 
+    }
+    
+    public static List<Fisica> leTodosIdade15a30anos() throws Exception {
+
+        List<Fisica> listFisicas = new ArrayList<>();
+
+        try {
+
+            String sql = "SELECT * FROM fisica WHERE idade > 14 AND idade < 31";
+
+            connection = GerenteDeConexao.getConnection();
+
+            st = connection.prepareStatement(sql);
+
+            rs = st.executeQuery();
+
+            while (rs.next()) {
+
+                Fisica f = new Fisica();
+
+                f.setCpf(rs.getString("cpf"));
+
+                f.setNome(rs.getString("nome"));
+
+                f.setIdade(rs.getInt("idade"));
+
+                f.setAtendente(AtendenteDAO.leUm(rs.getInt("atendente_matr")));
+
+                listFisicas.add(f);
+
+            }
+
+            st.close();
+
+        } catch (SQLException e) {
+
+            System.out.println(e.getMessage());
+        }
+
+        return listFisicas;
+    }
+    
+    public static List<Fisica> leTodosInnerJoin(char letra, int menor, int maior) throws Exception {
+        
+        List<Fisica> listaFisica = new ArrayList<>();
+        
+        try {
+            
+            String sql = "SELECT a.matr, a.nome, f.cpf, f.nome, f.idade " +
+                         "FROM atendente a INNER JOIN fisica f " +
+                         "ON a.matr = f.Atendente_matr " +
+                         "WHERE a.nome LIKE ? AND f.idade BETWEEN ? AND ?";
+            
+            connection = GerenteDeConexao.getConnection();
+            
+            st = connection.prepareStatement(sql);
+            
+            st.setString(1, letra + "%");
+            
+            st.setInt(2, menor);
+            
+            st.setInt(3, maior);
+            
+            rs = st.executeQuery();
+            
+            while (rs.next()) {
+                
+                Fisica fisica = new Fisica();
+                
+                fisica.setCpf(rs.getString("f.cpf"));
+                
+                fisica.setIdade(rs.getInt("f.idade"));
+                
+                fisica.setNome(rs.getString("f.nome"));
+                
+                Atendente atendente = new Atendente(rs.getInt("a.matr"), rs.getString("a.nome"));
+                
+                fisica.setAtendente(atendente);
+                
+                listaFisica.add(fisica);
+            }
+            
+            st.close();
+            
+        } catch (SQLException e) {
+            
+            System.out.println(e.getMessage());
+            
+        }
+        
+        return listaFisica;
+        
     }
 
 }

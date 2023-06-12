@@ -197,18 +197,22 @@ public class FisicaDAO {
 
     }
     
-    public static List<Fisica> leTodosIdade15a30anos() throws Exception {
+    public static List<Fisica> leTodosIdade15a30anos(int numMenor, int numMaior) throws Exception {
 
         List<Fisica> listFisicas = new ArrayList<>();
 
         try {
 
-            String sql = "SELECT * FROM fisica WHERE idade > 14 AND idade < 31";
+            String sql = "SELECT * FROM fisica WHERE idade > ? AND idade < ?";
 
             connection = GerenteDeConexao.getConnection();
 
             st = connection.prepareStatement(sql);
 
+            st.setInt(1, numMenor);
+            
+            st.setInt(2, numMaior);
+            
             rs = st.executeQuery();
 
             while (rs.next()) {

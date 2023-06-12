@@ -9,6 +9,6 @@ public class Q01_TestaAtendenteDAOleMaioresQue2 {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        System.out.println(AtendenteDAO.leMaioresQue2());
+        System.out.println(AtendenteDAO.leMaioresQue2(2));
     }
 }

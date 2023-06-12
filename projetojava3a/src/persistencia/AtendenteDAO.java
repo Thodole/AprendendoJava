@@ -178,17 +178,19 @@ public class AtendenteDAO {
 
     }
 
-    public static List<Atendente> leMaioresQue2() throws Exception {
+    public static List<Atendente> leMaioresQue2(int num) throws Exception {
         
         List<Atendente> listAtendentes = new ArrayList<>();
         
         try {
             
-            String sql = "SELECT * FROM atendente WHERE matr >= 2";
+            String sql = "SELECT * FROM atendente WHERE matr >= ?";
             
             connection = GerenteDeConexao.getConnection();
             
             st = connection.prepareStatement(sql);
+            
+            st.setInt(1, num);
             
             rs = st.executeQuery();
             

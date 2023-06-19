@@ -1,7 +1,6 @@
 package testes.veterinario;
 
-import testes.atendente.*;
-import persistencia.AtendenteDAO;
+import persistencia.VeterinarioDAO;
 
 public class TestaVeterinarioDAOleTodos {
 
@@ -10,6 +9,6 @@ public class TestaVeterinarioDAOleTodos {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        System.out.println(AtendenteDAO.leTodos());
+        System.out.println(VeterinarioDAO.leTodos());
     }
 }

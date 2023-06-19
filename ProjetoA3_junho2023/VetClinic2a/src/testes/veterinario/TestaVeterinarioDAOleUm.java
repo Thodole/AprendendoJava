@@ -9,6 +9,6 @@ public class TestaVeterinarioDAOleUm {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        System.out.println(VeterinarioDAO.leUm(1));
+        System.out.println(VeterinarioDAO.leUm(11));
     }
 }

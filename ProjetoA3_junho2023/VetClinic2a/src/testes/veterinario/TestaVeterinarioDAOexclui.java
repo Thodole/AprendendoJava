@@ -1,7 +1,6 @@
 package testes.veterinario;
 
-import testes.atendente.*;
-import persistencia.AtendenteDAO;
+import persistencia.VeterinarioDAO;
 
 public class TestaVeterinarioDAOexclui {
 
@@ -10,6 +9,6 @@ public class TestaVeterinarioDAOexclui {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        System.out.println(AtendenteDAO.exclui(11));
+        System.out.println(VeterinarioDAO.exclui(11));
     }
 }

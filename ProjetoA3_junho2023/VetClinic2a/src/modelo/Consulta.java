@@ -12,6 +12,8 @@ public class Consulta {
     private Atendente atendente;
     private Veterinario veterinario;
 
+    public Consulta() {}
+    
     public Consulta(int idConsulta, String dataHora, int tipoPaciente, String procedimento, Canino canino, Equino equino, Felino felino, Atendente atendente, Veterinario veterinario) {
         this.idConsulta = idConsulta;
         this.dataHora = dataHora;

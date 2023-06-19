@@ -5,6 +5,8 @@ public class Veterinario {
     private int idVet;
     private String nome;
 
+    public Veterinario() {}
+    
     public Veterinario(int idVet, String nome) {
         this.idVet = idVet;
         this.nome = nome;

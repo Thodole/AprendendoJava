@@ -5,6 +5,8 @@ public class Atendente {
     private int idAtend;
     private String nome;
 
+    public Atendente() {}
+    
     public Atendente(int idAtend, String nome) {
         this.idAtend = idAtend;
         this.nome = nome;

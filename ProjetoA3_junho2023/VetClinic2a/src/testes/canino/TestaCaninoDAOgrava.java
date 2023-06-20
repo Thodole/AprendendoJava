@@ -11,9 +11,9 @@ public class TestaCaninoDAOgrava {
      */
     public static void main(String[] args) throws Exception {
         Canino canino = new Canino();
-        canino.setIdCanino(11);
-        canino.setNome("Teste");
-        canino.setIdade(16);
+        canino.setIdCanino(-99);
+        canino.setNome("");
+        canino.setIdade(0);
         
         System.out.println(CaninoDAO.grava(canino));
     }

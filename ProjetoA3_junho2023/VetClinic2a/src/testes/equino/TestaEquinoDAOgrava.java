@@ -11,9 +11,9 @@ public class TestaEquinoDAOgrava {
      */
     public static void main(String[] args) throws Exception {
         Equino equino = new Equino();
-        equino.setIdEquino(11);
-        equino.setNome("Scadufaxxxx");
-        equino.setIdade(5);
+        equino.setIdEquino(-99);
+        equino.setNome("");
+        equino.setIdade(0);
         
         System.out.println(EquinoDAO.grava(equino));
     }

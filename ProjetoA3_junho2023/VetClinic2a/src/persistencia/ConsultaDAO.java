@@ -66,7 +66,15 @@ public class ConsultaDAO {
 
     }
     
-    public static int altera(int novoIdConsulta, String data, String procedimento, int idVet, int idAtend, int idEqu, int idCan, int idFel, int idConsulta) throws Exception {
+    public static int altera(int novoIdConsulta,
+                             String data, 
+                             String procedimento, 
+                             int idVet, 
+                             int idAtend, 
+                             int idEqu, 
+                             int idCan, 
+                             int idFel, 
+                             int idConsulta) throws Exception {
 
         int retorno = 0;
 
@@ -95,6 +103,133 @@ public class ConsultaDAO {
             st.setInt(8, idFel);
             
             st.setInt(9, idConsulta);
+
+            retorno = st.executeUpdate();
+
+            st.close();
+
+        } catch (SQLException e) {
+
+            System.out.println(e.getMessage());
+
+        }
+
+        return retorno;
+
+    }
+    
+    public static int alteraNotIn(int novoIdConsulta,
+                                  String data, 
+                                  String procedimento, 
+                                  int idVet, 
+                                  int idAtend, 
+                                  int idEqu, 
+                                  int idCan, 
+                                  int idFel,
+                                  int idOut1, 
+                                  int idOut2) throws Exception {
+
+        int retorno = 0;
+
+        try {
+
+            String sql = "UPDATE consulta SET idConsulta = ?, " +
+                                             "data = ?, " +
+                                             "Procedimento = ?, " +
+                                             "Veterinario_idVeterinario = ?, " +
+                                             "Atendente_idAtendente = ?, " +
+                                             "Equino_idEquino = ?, " +
+                                             "Canino_idCanino = ?, " +
+                                             "Felino_idFelino = ? " +
+                                             "WHERE idConsulta NOT IN (?, ?)";
+
+            connection = GerenteDeConexao.getConnection();
+
+            st = connection.prepareStatement(sql);
+
+            st.setInt(1, novoIdConsulta);
+
+            st.setString(2, data);
+
+            st.setString(3, procedimento);
+
+            st.setInt(4, idVet);
+            
+            st.setInt(5, idAtend);
+            
+            st.setInt(6, idEqu);
+            
+            st.setInt(7, idCan);
+            
+            st.setInt(8, idFel);
+            
+            st.setInt(9, idOut1);
+            
+            st.setInt(10, idOut2);
+
+            retorno = st.executeUpdate();
+
+            st.close();
+
+        } catch (SQLException e) {
+
+            System.out.println(e.getMessage());
+
+        }
+
+        return retorno;
+
+    }
+    
+    public static int alteraAnd(int novoIdConsulta,
+                                  String data, 
+                                  String procedimento, 
+                                  int idVet, 
+                                  int idAtend, 
+                                  int idEqu, 
+                                  int idCan, 
+                                  int idFel,
+                                  int idConsult, 
+                                  int idVeter) throws Exception {
+
+        int retorno = 0;
+
+        try {
+
+            String sql = "UPDATE consulta SET idConsulta = ?, " +
+                                             "data = ?, " +
+                                             "Procedimento = ?, " +
+                                             "Veterinario_idVeterinario = ?, " +
+                                             "Atendente_idAtendente = ?, " +
+                                             "Equino_idEquino = ?, " +
+                                             "Canino_idCanino = ?, " +
+                                             "Felino_idFelino = ? " +
+                                             "WHERE idConsulta = ? " +
+                                             "AND Veterinario_idVeterinario = ?";
+
+            connection = GerenteDeConexao.getConnection();
+
+            st = connection.prepareStatement(sql);
+
+            st.setInt(1, novoIdConsulta);
+
+            st.setString(2, data);
+
+            st.setString(3, procedimento);
+
+            st.setInt(4, idVet);
+            
+            st.setInt(5, idAtend);
+            
+            st.setInt(6, idEqu);
+            
+            st.setInt(7, idCan);
+            
+            st.setInt(8, idFel);
+            
+            st.setInt(9, idConsult);
+            
+            st.setInt(10, idVeter);
 
             retorno = st.executeUpdate();
 

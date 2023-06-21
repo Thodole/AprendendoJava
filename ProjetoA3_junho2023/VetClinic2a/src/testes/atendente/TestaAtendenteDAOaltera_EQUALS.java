@@ -2,7 +2,7 @@ package testes.atendente;
 
 import persistencia.AtendenteDAO;
 
-public class TestaAtendenteDAOaltera_IGUAL {
+public class TestaAtendenteDAOaltera_EQUALS {
 
     /**
      * @param args the command line arguments

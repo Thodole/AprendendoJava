@@ -2,7 +2,7 @@ package testes.veterinario;
 
 import persistencia.VeterinarioDAO;
 
-public class TestaVeterinarioDAOaltera_IGUAL {
+public class TestaVeterinarioDAOaltera_EQUALS {
 
     /**
      * @param args the command line arguments

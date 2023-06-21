@@ -4,7 +4,9 @@ public class Canino extends Animal{
     
     private int idCanino;
 
-    public Canino() {}
+    public Canino() {
+        this.idCanino = 0;
+    }
     
     public Canino(String nome, int idade, int idCanino) {
         super(nome, idade);

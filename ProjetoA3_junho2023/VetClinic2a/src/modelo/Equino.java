@@ -4,7 +4,9 @@ public class Equino extends Animal{
     
     private int idEquino;
 
-    public Equino() {}
+    public Equino() {
+        this.idEquino = 0;
+    }
     
     public Equino(String nome, int idade, int idEquino) {
         super(nome, idade);

@@ -9,6 +9,6 @@ public class TestaConsultaDAOleUm {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        System.out.println(ConsultaDAO.leUm(3));
+        System.out.println(ConsultaDAO.leUm(1));
     }
 }

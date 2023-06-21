@@ -146,10 +146,12 @@ public class ConsultaDAO {
                 
                 if (rs.getInt("Equino_idEquino") > 0) {
                     consult.setTipoPaciente(2);
-                } else if (rs.getInt("Equino_idEquino") > 0) {
-                    
-                }
-
+                } else if (rs.getInt("Canino_idCanino") > 0) {
+                    consult.setTipoPaciente(1);
+                } else if (rs.getInt("Felino_idFelino") > 0) {
+                    consult.setTipoPaciente(3);
+                } else
+                    consult.setTipoPaciente(0);
             }
 
             st.close();
@@ -188,16 +190,25 @@ public class ConsultaDAO {
 
                 consult.setProcedimento(rs.getString("Procedimento"));
 
-                consult.setVeterinario(VeterinarioDAO.leUm(rs.getInt("idVeterinario")));
+                consult.setVeterinario(VeterinarioDAO.leUm(rs.getInt("Veterinario_idVeterinario")));
                 
-                consult.setAtendente(AtendenteDAO.leUm(rs.getInt("idAtendente")));
+                consult.setAtendente(AtendenteDAO.leUm(rs.getInt("Atendente_idAtendente")));
                 
-                consult.setEquino(EquinoDAO.leUm(rs.getInt("idEquino")));
+                consult.setEquino(EquinoDAO.leUm(rs.getInt("Equino_idEquino")));
                 
-                consult.setCanino(CaninoDAO.leUm(rs.getInt("idCanino")));
+                consult.setCanino(CaninoDAO.leUm(rs.getInt("Canino_idCanino")));
                 
-                consult.setFelino(FelinoDAO.leUm(rs.getInt("idFelino")));
+                consult.setFelino(FelinoDAO.leUm(rs.getInt("Felino_idFelino")));
 
+                if (rs.getInt("Equino_idEquino") > 0) {
+                    consult.setTipoPaciente(2);
+                } else if (rs.getInt("Canino_idCanino") > 0) {
+                    consult.setTipoPaciente(1);
+                } else if (rs.getInt("Felino_idFelino") > 0) {
+                    consult.setTipoPaciente(3);
+                } else
+                    consult.setTipoPaciente(0);
+                
                 listConsultas.add(consult);
 
             }

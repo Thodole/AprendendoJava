@@ -107,7 +107,7 @@ public class Consulta {
             case 3:
                 return felino.toString();
             default:
-                return "Informe corretamente o tipo de paciente";
+                return "\nInforme corretamente o id do animal";
         }
     }
 

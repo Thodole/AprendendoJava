@@ -188,4 +188,134 @@ public class CaninoDAO {
 
     }
     
+    public static List<Canino> leTodosPrimeiraLetra(char primeiraLetra) throws Exception {
+
+        List<Canino> listCaninos = new ArrayList<>();
+
+        try {
+
+            String sql = "SELECT * FROM canino WHERE nome LIKE ?";
+
+            connection = GerenteDeConexao.getConnection();
+
+            st = connection.prepareStatement(sql);
+
+            st.setString(1, primeiraLetra + "%");
+            
+            rs = st.executeQuery();
+
+            while (rs.next()) {
+
+                Canino canis = new Canino();
+
+                canis.setIdCanino(rs.getInt("idCanino"));
+
+                canis.setNome(rs.getString("nome"));
+                
+                canis.setIdade(rs.getInt("idade"));
+
+                listCaninos.add(canis);
+
+            }
+
+            st.close();
+
+        } catch (SQLException e) {
+
+            System.out.println(e.getMessage());
+
+        }
+
+        return listCaninos;
+
+    }
+    
+    public static List<Canino> lePorId(int idA, int idB) throws Exception {
+
+        List<Canino> listCaninos = new ArrayList<>();
+
+        try {
+
+            String sql = "SELECT * FROM canino WHERE idCanino IN(?, ?)";
+
+            connection = GerenteDeConexao.getConnection();
+
+            st = connection.prepareStatement(sql);
+
+            st.setString(1, idA + "%");
+            
+            st.setString(2, idB + "%");
+            
+            rs = st.executeQuery();
+
+            while (rs.next()) {
+
+                Canino canis = new Canino();
+
+                canis.setIdCanino(rs.getInt("idCanino"));
+
+                canis.setNome(rs.getString("nome"));
+                
+                canis.setIdade(rs.getInt("idade"));
+
+                listCaninos.add(canis);
+
+            }
+
+            st.close();
+
+        } catch (SQLException e) {
+
+            System.out.println(e.getMessage());
+
+        }
+
+        return listCaninos;
+
+    }
+    
+    public static List<Canino> leTodosPorNaoEntre(int idA, int idB) throws Exception {
+
+        List<Canino> listCaninos = new ArrayList<>();
+
+        try {
+
+            String sql = "SELECT * FROM canino WHERE idCanino NOT BETWEEN ? AND ? AND idCanino != 0";
+
+            connection = GerenteDeConexao.getConnection();
+
+            st = connection.prepareStatement(sql);
+
+            st.setString(1, idA + "%");
+            
+            st.setString(2, idB + "%");
+            
+            rs = st.executeQuery();
+
+            while (rs.next()) {
+
+                Canino canis = new Canino();
+
+                canis.setIdCanino(rs.getInt("idCanino"));
+
+                canis.setNome(rs.getString("nome"));
+                
+                canis.setIdade(rs.getInt("idade"));
+
+                listCaninos.add(canis);
+
+            }
+
+            st.close();
+
+        } catch (SQLException e) {
+
+            System.out.println(e.getMessage());
+
+        }
+
+        return listCaninos;
+
+    }
+    
 }

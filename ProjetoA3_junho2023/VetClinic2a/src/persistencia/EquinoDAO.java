@@ -188,4 +188,134 @@ public class EquinoDAO {
 
     }
     
+    public static List<Equino> leTodosPrimeiraLetra(char primeiraLetra) throws Exception {
+
+        List<Equino> listEquinos = new ArrayList<>();
+
+        try {
+
+            String sql = "SELECT * FROM equino WHERE nome LIKE ?";
+
+            connection = GerenteDeConexao.getConnection();
+
+            st = connection.prepareStatement(sql);
+
+            st.setString(1, primeiraLetra + "%");
+            
+            rs = st.executeQuery();
+
+            while (rs.next()) {
+
+                Equino horse = new Equino();
+
+                horse.setIdEquino(rs.getInt("idEquino"));
+
+                horse.setNome(rs.getString("nome"));
+                
+                horse.setIdade(rs.getInt("idade"));
+
+                listEquinos.add(horse);
+
+            }
+
+            st.close();
+
+        } catch (SQLException e) {
+
+            System.out.println(e.getMessage());
+
+        }
+
+        return listEquinos;
+
+    }
+    
+    public static List<Equino> lePorId(int idA, int idB) throws Exception {
+
+        List<Equino> listEquinos = new ArrayList<>();
+
+        try {
+
+            String sql = "SELECT * FROM equino WHERE idEquino IN(?, ?)";
+
+            connection = GerenteDeConexao.getConnection();
+
+            st = connection.prepareStatement(sql);
+
+            st.setString(1, idA + "%");
+            
+            st.setString(2, idB + "%");
+            
+            rs = st.executeQuery();
+
+            while (rs.next()) {
+
+                Equino horse = new Equino();
+
+                horse.setIdEquino(rs.getInt("idEquino"));
+
+                horse.setNome(rs.getString("nome"));
+                
+                horse.setIdade(rs.getInt("idade"));
+
+                listEquinos.add(horse);
+
+            }
+
+            st.close();
+
+        } catch (SQLException e) {
+
+            System.out.println(e.getMessage());
+
+        }
+
+        return listEquinos;
+
+    }
+    
+    public static List<Equino> leTodosPorNaoEntre(int idA, int idB) throws Exception {
+
+        List<Equino> listEquinos = new ArrayList<>();
+
+        try {
+
+            String sql = "SELECT * FROM equino WHERE idEquino NOT BETWEEN ? AND ? AND idEquino != 0";
+
+            connection = GerenteDeConexao.getConnection();
+
+            st = connection.prepareStatement(sql);
+
+            st.setString(1, idA + "%");
+            
+            st.setString(2, idB + "%");
+            
+            rs = st.executeQuery();
+
+            while (rs.next()) {
+
+                Equino horse = new Equino();
+
+                horse.setIdEquino(rs.getInt("idEquino"));
+
+                horse.setNome(rs.getString("nome"));
+                
+                horse.setIdade(rs.getInt("idade"));
+
+                listEquinos.add(horse);
+
+            }
+
+            st.close();
+
+        } catch (SQLException e) {
+
+            System.out.println(e.getMessage());
+
+        }
+
+        return listEquinos;
+
+    }
+    
 }

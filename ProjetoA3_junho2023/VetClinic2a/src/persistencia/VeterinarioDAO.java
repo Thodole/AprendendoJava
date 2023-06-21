@@ -180,4 +180,128 @@ public class VeterinarioDAO {
 
     }
     
+    public static List<Veterinario> leTodosPrimeiraLetra(char primeiraLetra) throws Exception {
+
+        List<Veterinario> listVeterinarios = new ArrayList<>();
+
+        try {
+
+            String sql = "SELECT * FROM veterinario WHERE nome LIKE ?";
+
+            connection = GerenteDeConexao.getConnection();
+
+            st = connection.prepareStatement(sql);
+            
+            st.setString(1, primeiraLetra + "%");
+
+            rs = st.executeQuery();
+
+            while (rs.next()) {
+
+                Veterinario vet = new Veterinario();
+
+                vet.setIdVet(rs.getInt("idVeterinario"));
+
+                vet.setNome(rs.getString("nome"));
+
+                listVeterinarios.add(vet);
+
+            }
+
+            st.close();
+
+        } catch (SQLException e) {
+
+            System.out.println(e.getMessage());
+
+        }
+
+        return listVeterinarios;
+
+    }
+    
+    public static List<Veterinario> lePorId(int idA, int idB) throws Exception {
+
+        List<Veterinario> listVeterinarios = new ArrayList<>();
+
+        try {
+
+            String sql = "SELECT * FROM veterinario WHERE idVeterinario IN(?, ?)";
+
+            connection = GerenteDeConexao.getConnection();
+
+            st = connection.prepareStatement(sql);
+            
+            st.setString(1, idA + "%");
+            
+            st.setString(2, idB + "%");
+
+            rs = st.executeQuery();
+
+            while (rs.next()) {
+
+                Veterinario vet = new Veterinario();
+
+                vet.setIdVet(rs.getInt("idVeterinario"));
+
+                vet.setNome(rs.getString("nome"));
+
+                listVeterinarios.add(vet);
+
+            }
+
+            st.close();
+
+        } catch (SQLException e) {
+
+            System.out.println(e.getMessage());
+
+        }
+
+        return listVeterinarios;
+
+    }
+    
+    public static List<Veterinario> leTodosPorNaoEntre(int idA, int idB) throws Exception {
+
+        List<Veterinario> listVeterinarios = new ArrayList<>();
+
+        try {
+
+            String sql = "SELECT * FROM veterinario WHERE idVeterinario NOT BETWEEN ? AND ?";
+
+            connection = GerenteDeConexao.getConnection();
+
+            st = connection.prepareStatement(sql);
+            
+            st.setInt(1, idA);
+            
+            st.setInt(2, idB);
+
+            rs = st.executeQuery();
+
+            while (rs.next()) {
+
+                Veterinario vet = new Veterinario();
+
+                vet.setIdVet(rs.getInt("idVeterinario"));
+
+                vet.setNome(rs.getString("nome"));
+
+                listVeterinarios.add(vet);
+
+            }
+
+            st.close();
+
+        } catch (SQLException e) {
+
+            System.out.println(e.getMessage());
+
+        }
+
+        return listVeterinarios;
+
+    }
+    
 }

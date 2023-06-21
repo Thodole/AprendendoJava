@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 21/06/2023 às 03:13
+-- Tempo de geração: 21/06/2023 às 18:03
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.1.17
 
@@ -85,9 +85,11 @@ CREATE TABLE `consulta` (
 --
 
 INSERT INTO `consulta` (`idConsulta`, `data`, `Procedimento`, `Veterinario_idVeterinario`, `Atendente_idAtendente`, `Equino_idEquino`, `Canino_idCanino`, `Felino_idFelino`) VALUES
-(1, '20/06/2023 - 14:20', 'Soro e medicação', 1, 1, 1, 0, 0),
-(2, '20/06/2023 - 16:40', 'Rotina + escovação', 2, 2, 2, 0, 0),
-(3, '20/06/2023 - 18:02', 'Rotina', 3, 3, 3, 0, 0);
+(1, '20/06/2023 - 14:20', 'Soro e medicação', 123451, 1, 1, 0, 0),
+(2, '20/06/2023 - 16:40', 'Rotina + escovação', 123452, 2, 2, 0, 0),
+(3, '20/06/2023 - 18:02', 'Rotina', 123453, 3, 3, 0, 0),
+(4, '21/06/2023 - 08:45', 'Consulta de rotina', 123452, 2, 0, 1, 0),
+(5, '21/06/2023 - 10:30', 'Consulta de rotina', 123451, 1, 0, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -149,9 +151,9 @@ CREATE TABLE `veterinario` (
 --
 
 INSERT INTO `veterinario` (`idVeterinario`, `nome`) VALUES
-(1, 'Gabriel Perez'),
-(2, 'Glauciane Moura'),
-(3, 'Saul Medeiros');
+(123451, 'Gabriel Peres'),
+(123452, 'Glauciane Moura'),
+(123453, 'Saul Medeiros');
 
 --
 -- Índices para tabelas despejadas

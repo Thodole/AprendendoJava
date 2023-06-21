@@ -23,7 +23,7 @@ public class Felino extends Animal{
     public String toString() {
         return "\nID do felino:            " + idFelino +
                "\nNome do felino:          " + getNome() +
-               "\nIdade do animal:         " + getIdade() + " anos";
+               "\nIdade do animal:         " + getIdade() + " ano(s)";
     }
     
 }

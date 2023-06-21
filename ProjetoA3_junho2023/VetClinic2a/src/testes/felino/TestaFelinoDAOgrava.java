@@ -11,7 +11,7 @@ public class TestaFelinoDAOgrava {
      */
     public static void main(String[] args) throws Exception {
         Felino felino = new Felino();
-        felino.setIdFelino(-99);
+        felino.setIdFelino(0);
         felino.setNome("");
         felino.setIdade(0);
         

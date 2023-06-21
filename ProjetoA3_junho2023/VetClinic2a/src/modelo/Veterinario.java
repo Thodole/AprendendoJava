@@ -30,8 +30,8 @@ public class Veterinario {
     
     @Override
     public String toString() {
-        return   "\nID do Veterinário (CRMV):" + getIdVet()
-               + "\nNome:                    " + getNome();
+        return   "\nID do Veterinário(CRMV): " + getIdVet()
+               + "\nNome do veterinário:     " + getNome();
     }
     
 }

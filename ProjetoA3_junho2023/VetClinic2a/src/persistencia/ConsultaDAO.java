@@ -66,35 +66,37 @@ public class ConsultaDAO {
 
     }
     
-    public static int altera(Consulta consulta, int novoIdConsulta, String data, String procedimento, int idVet, int idAtend, int idEqu, int idCan, int idFel) throws Exception {
+    public static int altera(int novoIdConsulta, String data, String procedimento, int idVet, int idAtend, int idEqu, int idCan, int idFel, int idConsulta) throws Exception {
 
         int retorno = 0;
 
         try {
 
-            String sql = "UPDATE Consulta SET idConsulta, " +
-                                              "data, " +
-                                              "Procedimento, " +
-                                              "Veterinario_idVeterinario, " +
-                                              "Atendente_idAtendente, " +
-                                              "Equino_idEquino, " +
-                                              "Canino_idCanino, " +
-                                              "Felino_idFelino) " +
-                                              "WHERE idConsulta = ?";
+            String sql = "UPDATE consulta SET idConsulta = ?, data = ?, Procedimento = ?, Veterinario_idVeterinario = ?, Atendente_idAtendente = ?, Equino_idEquino = ?, Canino_idCanino = ?, Felino_idFelino = ? WHERE idConsulta = ?";
 
             connection = GerenteDeConexao.getConnection();
 
             st = connection.prepareStatement(sql);
 
-            st.setString(1, juridica.getNome());
+            st.setInt(1, novoIdConsulta);
 
-            st.setInt(2, juridica.getIdade());
+            st.setString(2, data);
 
-            st.setInt(3, juridica.getAtendente().getMatr());
+            st.setString(3, procedimento);
 
-            st.setString(4, juridica.getCnpj());
+            st.setInt(4, idVet);
+            
+            st.setInt(5, idAtend);
+            
+            st.setInt(6, idEqu);
+            
+            st.setInt(7, idCan);
+            
+            st.setInt(8, idFel);
+            
+            st.setInt(9, idConsulta);
 
-            ret = st.executeUpdate();
+            retorno = st.executeUpdate();
 
             st.close();
 
@@ -104,11 +106,11 @@ public class ConsultaDAO {
 
         }
 
-        return ret;
+        return retorno;
 
     }
     
-    public static Consulta leUm(int idConsulta) throws Exception {
+    public static Consulta leUm(int idConsult) throws Exception {
 
         Consulta consult = new Consulta();
 
@@ -120,7 +122,7 @@ public class ConsultaDAO {
 
             st = connection.prepareStatement(sql);
 
-            st.setInt(1, idConsulta);
+            st.setInt(1, idConsult);
 
             rs = st.executeQuery();
 
@@ -132,15 +134,21 @@ public class ConsultaDAO {
                 
                 consult.setProcedimento(rs.getString("Procedimento"));
                 
-                consult.setVeterinario(VeterinarioDAO.leUm(rs.getInt("idVeterinario")));
+                consult.setVeterinario(VeterinarioDAO.leUm(rs.getInt("Veterinario_idVeterinario")));
                 
-                consult.setAtendente(AtendenteDAO.leUm(rs.getInt("idAtendente")));
+                consult.setAtendente(AtendenteDAO.leUm(rs.getInt("Atendente_idAtendente")));
                 
-                consult.setEquino(EquinoDAO.leUm(rs.getInt("idEquino")));
+                consult.setEquino(EquinoDAO.leUm(rs.getInt("Equino_idEquino")));
                 
-                consult.setCanino(CaninoDAO.leUm(rs.getInt("idCanino")));
+                consult.setCanino(CaninoDAO.leUm(rs.getInt("Canino_idCanino")));
                 
-                consult.setFelino(FelinoDAO.leUm(rs.getInt("idFelino")));
+                consult.setFelino(FelinoDAO.leUm(rs.getInt("Felino_idFelino")));
+                
+                if (rs.getInt("Equino_idEquino") > 0) {
+                    consult.setTipoPaciente(2);
+                } else if (rs.getInt("Equino_idEquino") > 0) {
+                    
+                }
 
             }
 
@@ -206,6 +214,32 @@ public class ConsultaDAO {
 
     }
     
-    ...
+    public static int exclui(int idConsult) throws Exception {
+
+        int retorno = 0;
+
+        try {
+
+            String sql = "DELETE FROM consulta WHERE idConsulta = ?";
+
+            connection = GerenteDeConexao.getConnection();
+
+            st = connection.prepareStatement(sql);
+
+            st.setInt(1, idConsult);
+
+            retorno = st.executeUpdate();
+
+            st.close();
+
+        } catch (SQLException e) {
+
+            System.out.println(e.getMessage());
+
+        }
+
+        return retorno;
+
+    }
     
 }

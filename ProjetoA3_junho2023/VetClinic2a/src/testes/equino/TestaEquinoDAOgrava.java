@@ -11,7 +11,7 @@ public class TestaEquinoDAOgrava {
      */
     public static void main(String[] args) throws Exception {
         Equino equino = new Equino();
-        equino.setIdEquino(-99);
+        equino.setIdEquino(0);
         equino.setNome("");
         equino.setIdade(0);
         

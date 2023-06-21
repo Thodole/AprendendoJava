@@ -21,9 +21,9 @@ public class Equino extends Animal{
     
     @Override
     public String toString() {
-        return "\nID do Equino:            " + idEquino +
-               "\nNome:                    " + getNome() +
-               "\nIdade                    " + getIdade();
+        return "\nID do equino:            " + idEquino +
+               "\nNome do equino:          " + getNome() +
+               "\nIdade do animal:         " + getIdade() + " anos";
     }
     
 }

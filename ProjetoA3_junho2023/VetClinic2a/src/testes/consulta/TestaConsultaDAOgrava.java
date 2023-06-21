@@ -16,33 +16,31 @@ public class TestaConsultaDAOgrava {
      */
     public static void main(String[] args) throws Exception {
         Consulta consulta = new Consulta();
-        consulta.setIdConsulta(2);
-        consulta.setDataHora("20/06/2023 - 16:51");
-        consulta.setProcedimento("Soro e medicação");
+        consulta.setIdConsulta(11);
+        consulta.setDataHora("20/06/2023 - 18:02");
+        consulta.setProcedimento("Rotina");
         
         Veterinario veterinario = new Veterinario();
-        veterinario.setIdVet(2);
+        veterinario.setIdVet(3);
         consulta.setVeterinario(veterinario);
         
         Atendente atendente = new Atendente();
-        atendente.setIdAtend(2);
+        atendente.setIdAtend(3);
         consulta.setAtendente(atendente);
         
         Equino equino = new Equino();
-        equino.setIdEquino(1);
+        equino.setIdEquino(3);
         consulta.setEquino(equino);
         
         Canino canino = new Canino();
-        canino.setIdCanino(-99);
+        canino.setIdCanino(0);
         consulta.setCanino(canino);
         
         Felino felino = new Felino();
-        felino.setIdFelino(-99);
+        felino.setIdFelino(0);
         consulta.setFelino(felino);
         
         System.out.println(ConsultaDAO.grava(consulta));
     }
-    
-    
     
 }

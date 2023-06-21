@@ -30,8 +30,8 @@ public class Atendente {
     
     @Override
     public String toString() {
-        return   "\nID do Atendente:         " + getIdAtend()
-               + "\nNome:                    " + getNome();
+        return   "\nID do atendente:         " + getIdAtend()
+               + "\nNome do atendente:       " + getNome();
     }
     
 }

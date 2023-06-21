@@ -21,9 +21,9 @@ public class Felino extends Animal{
     
     @Override
     public String toString() {
-        return "\nID do Felino:            " + idFelino +
-               "\nNome:                    " + getNome() +
-               "\nIdade                    " + getIdade();
+        return "\nID do felino:            " + idFelino +
+               "\nNome do felino:          " + getNome() +
+               "\nIdade do animal:         " + getIdade() + " anos";
     }
     
 }

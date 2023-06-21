@@ -11,7 +11,7 @@ public class TestaCaninoDAOgrava {
      */
     public static void main(String[] args) throws Exception {
         Canino canino = new Canino();
-        canino.setIdCanino(-99);
+        canino.setIdCanino(0);
         canino.setNome("");
         canino.setIdade(0);
         

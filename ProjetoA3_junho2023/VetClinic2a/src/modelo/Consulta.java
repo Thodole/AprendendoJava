@@ -4,24 +4,26 @@ public class Consulta {
     
     private int idConsulta;
     private String dataHora;
+    private int tipoPaciente;
     private String procedimento;
-    private Veterinario veterinario;
-    private Atendente atendente;
-    private Equino equino;
     private Canino canino;
+    private Equino equino;
     private Felino felino;
+    private Atendente atendente;
+    private Veterinario veterinario;
 
     public Consulta() {}
     
-    public Consulta(int idConsulta, String dataHora, String procedimento, Veterinario veterinario, Atendente atendente, Equino equino, Canino canino, Felino felino) {
+    public Consulta(int idConsulta, String dataHora, int tipoPaciente, String procedimento, Canino canino, Equino equino, Felino felino, Atendente atendente, Veterinario veterinario) {
         this.idConsulta = idConsulta;
         this.dataHora = dataHora;
+        this.tipoPaciente = tipoPaciente;
         this.procedimento = procedimento;
-        this.veterinario = veterinario;
-        this.atendente = atendente;
-        this.equino = equino;
         this.canino = canino;
+        this.equino = equino;
         this.felino = felino;
+        this.atendente = atendente;
+        this.veterinario = veterinario;
     }
 
     public int getIdConsulta() {
@@ -38,6 +40,14 @@ public class Consulta {
 
     public void setDataHora(String dataHora) {
         this.dataHora = dataHora;
+    }
+    
+    public int getTipoPaciente() {
+        return tipoPaciente;
+    }
+
+    public void setTipoPaciente(int tipoPaciente) {
+        this.tipoPaciente = tipoPaciente;
     }
 
     public String getProcedimento() {
@@ -87,16 +97,29 @@ public class Consulta {
     public void setVeterinario(Veterinario veterinario) {
         this.veterinario = veterinario;
     }
+    
+    public String paciente() {
+        switch (getTipoPaciente()) {
+            case 1:
+                return canino.toString();
+            case 2:
+                return equino.toString();
+            case 3:
+                return felino.toString();
+            default:
+                return "Informe corretamente o tipo de paciente";
+        }
+    }
 
     @Override
     public String toString() {
-        return "\nDados da consulta:       " +
+        return "\nDados da consulta ---------------------------" +
                "\nNúmero da Consulta:      " + idConsulta +
                "\nData e hora:             " + dataHora +
                "\nProcedimento(s):         " + procedimento +
-               "\nDados do animal:         " + canino + equino + felino +
-               "\nDados do atendente:      " + atendente +
-               "\nDados do Veterinário:    " + veterinario;
+               "\nDados do animal:         --------------------" + paciente() +
+               "\nDados do atendente:      --------------------" + atendente +
+               "\nDados do Veterinário:    --------------------" + veterinario;
     }
     
 }

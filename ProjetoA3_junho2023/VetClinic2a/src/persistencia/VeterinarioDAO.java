@@ -60,7 +60,7 @@ public class VeterinarioDAO {
 
         try {
 
-            String sql = "SELECT * FROM Veterinario WHERE idVeterinario = ?";
+            String sql = "SELECT * FROM veterinario WHERE idVeterinario = ?";
 
             connection = GerenteDeConexao.getConnection();
 

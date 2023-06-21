@@ -9,6 +9,6 @@ public class TestaVeterinarioDAOaltera_EQUALS {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        System.out.println(VeterinarioDAO.altera(123451, "Gabriel Perez", 123451));
+        System.out.println(VeterinarioDAO.altera(123454, "Saulo Medeiros", 123456));
     }
 }

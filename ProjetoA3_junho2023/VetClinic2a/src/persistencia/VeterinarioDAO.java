@@ -184,7 +184,7 @@ public class VeterinarioDAO {
 
     }
     
-    public static int alteraAnd(String novoNome, int id, String nome) throws Exception {
+    public static int alteraAnd(String novoNome, int oldId, String oldNome) throws Exception {
 
         int retorno = 0;
 
@@ -198,9 +198,9 @@ public class VeterinarioDAO {
             
             st.setString(1, novoNome);
 
-            st.setInt(2, id);
+            st.setInt(2, oldId);
             
-            st.setString(3, nome);
+            st.setString(3, oldNome);
 
             retorno = st.executeUpdate();
 

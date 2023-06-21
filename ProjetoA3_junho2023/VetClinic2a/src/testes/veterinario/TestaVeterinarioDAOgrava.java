@@ -11,7 +11,7 @@ public class TestaVeterinarioDAOgrava {
      */
     public static void main(String[] args) throws Exception {
         Veterinario veterinario = new Veterinario();
-        veterinario.setIdVet(11);
+        veterinario.setIdVet(123456);
         veterinario.setNome("Saulo Merdeiros");
         
         System.out.println(VeterinarioDAO.grava(veterinario));

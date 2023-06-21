@@ -9,7 +9,6 @@ public class TestaVeterinarioDAOlePorId_IN {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        System.out.println(VeterinarioDAO.lePorId(123452, 123453));
+        System.out.println(VeterinarioDAO.lePorId(123453, 123454));
     }
-    
 }

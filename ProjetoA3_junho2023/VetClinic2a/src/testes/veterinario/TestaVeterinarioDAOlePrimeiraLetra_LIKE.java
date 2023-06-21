@@ -9,6 +9,6 @@ public class TestaVeterinarioDAOlePrimeiraLetra_LIKE {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        System.out.println(VeterinarioDAO.leTodosPrimeiraLetra('S'));
+        System.out.println(VeterinarioDAO.leTodosPrimeiraLetra('G'));
     }
 }

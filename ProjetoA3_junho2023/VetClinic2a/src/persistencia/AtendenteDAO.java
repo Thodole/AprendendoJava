@@ -180,4 +180,128 @@ public class AtendenteDAO {
 
     }
     
+    public static List<Atendente> leTodosPrimeiraLetra(char primeiraLetra) throws Exception {
+
+        List<Atendente> listAtendentes = new ArrayList<>();
+
+        try {
+
+            String sql = "SELECT * FROM atendente WHERE nome LIKE ?";
+
+            connection = GerenteDeConexao.getConnection();
+
+            st = connection.prepareStatement(sql);
+            
+            st.setString(1, primeiraLetra + "%");
+
+            rs = st.executeQuery();
+
+            while (rs.next()) {
+
+                Atendente atend = new Atendente();
+
+                atend.setIdAtend(rs.getInt("idAtendente"));
+
+                atend.setNome(rs.getString("nome"));
+
+                listAtendentes.add(atend);
+
+            }
+
+            st.close();
+
+        } catch (SQLException e) {
+
+            System.out.println(e.getMessage());
+
+        }
+
+        return listAtendentes;
+
+    }
+    
+    public static List<Atendente> lePorId(int idA, int idB) throws Exception {
+
+        List<Atendente> listAtendentes = new ArrayList<>();
+
+        try {
+
+            String sql = "SELECT * FROM atendente WHERE idAtendente IN(?, ?)";
+
+            connection = GerenteDeConexao.getConnection();
+
+            st = connection.prepareStatement(sql);
+            
+            st.setString(1, idA + "%");
+            
+            st.setString(2, idB + "%");
+
+            rs = st.executeQuery();
+
+            while (rs.next()) {
+
+                Atendente atend = new Atendente();
+
+                atend.setIdAtend(rs.getInt("idAtendente"));
+
+                atend.setNome(rs.getString("nome"));
+
+                listAtendentes.add(atend);
+
+            }
+
+            st.close();
+
+        } catch (SQLException e) {
+
+            System.out.println(e.getMessage());
+
+        }
+
+        return listAtendentes;
+
+    }
+    
+    public static List<Atendente> leTodosPorNaoEntre(int idA, int idB) throws Exception {
+
+        List<Atendente> listAtendentes = new ArrayList<>();
+
+        try {
+
+            String sql = "SELECT * FROM atendente WHERE idAtendente NOT BETWEEN ? AND ?";
+
+            connection = GerenteDeConexao.getConnection();
+
+            st = connection.prepareStatement(sql);
+            
+            st.setInt(1, idA);
+            
+            st.setInt(2, idB);
+
+            rs = st.executeQuery();
+
+            while (rs.next()) {
+
+                Atendente atend = new Atendente();
+
+                atend.setIdAtend(rs.getInt("idAtendente"));
+
+                atend.setNome(rs.getString("nome"));
+
+                listAtendentes.add(atend);
+
+            }
+
+            st.close();
+
+        } catch (SQLException e) {
+
+            System.out.println(e.getMessage());
+
+        }
+
+        return listAtendentes;
+
+    }
+    
 }

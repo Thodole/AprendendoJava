@@ -16,9 +16,9 @@ public class TestaConsultaDAOgrava {
      */
     public static void main(String[] args) throws Exception {
         Consulta consulta = new Consulta();
-        consulta.setIdConsulta(11);
-        consulta.setDataHora("20/06/2023 - 18:02");
-        consulta.setProcedimento("Rotina");
+        consulta.setIdConsulta(5);
+        consulta.setDataHora("21/06/2023 - 10:30");
+        consulta.setProcedimento("Consutlta de Rotina");
         
         Veterinario veterinario = new Veterinario();
         veterinario.setIdVet(3);
@@ -29,11 +29,11 @@ public class TestaConsultaDAOgrava {
         consulta.setAtendente(atendente);
         
         Equino equino = new Equino();
-        equino.setIdEquino(3);
+        equino.setIdEquino(0);
         consulta.setEquino(equino);
         
         Canino canino = new Canino();
-        canino.setIdCanino(0);
+        canino.setIdCanino(2);
         consulta.setCanino(canino);
         
         Felino felino = new Felino();

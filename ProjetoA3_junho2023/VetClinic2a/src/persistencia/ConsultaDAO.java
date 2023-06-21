@@ -253,4 +253,190 @@ public class ConsultaDAO {
 
     }
     
+    public static List<Consulta> leTodosPorData(String dataCheck) throws Exception {
+        
+        List<Consulta> listConsultas = new ArrayList<>();
+        
+        try {
+            
+            String sql = "SELECT * FROM consulta WHERE data LIKE ?";
+            
+            connection = GerenteDeConexao.getConnection();
+            
+            st = connection.prepareStatement(sql);
+
+            st.setString(1, dataCheck + "%");
+
+            rs = st.executeQuery();
+            
+            while (rs.next()) {
+                
+                Consulta consult = new Consulta();
+
+                consult.setIdConsulta(rs.getInt("idConsulta"));
+
+                consult.setDataHora(rs.getString("data"));
+
+                consult.setProcedimento(rs.getString("Procedimento"));
+
+                consult.setVeterinario(VeterinarioDAO.leUm(rs.getInt("Veterinario_idVeterinario")));
+                
+                consult.setAtendente(AtendenteDAO.leUm(rs.getInt("Atendente_idAtendente")));
+                
+                consult.setEquino(EquinoDAO.leUm(rs.getInt("Equino_idEquino")));
+                
+                consult.setCanino(CaninoDAO.leUm(rs.getInt("Canino_idCanino")));
+                
+                consult.setFelino(FelinoDAO.leUm(rs.getInt("Felino_idFelino")));
+
+                if (rs.getInt("Equino_idEquino") > 0) {
+                    consult.setTipoPaciente(2);
+                } else if (rs.getInt("Canino_idCanino") > 0) {
+                    consult.setTipoPaciente(1);
+                } else if (rs.getInt("Felino_idFelino") > 0) {
+                    consult.setTipoPaciente(3);
+                } else
+                    consult.setTipoPaciente(0);
+                
+                listConsultas.add(consult);
+
+            }
+            
+            st.close();
+            
+        } catch (SQLException e) {
+            
+            System.out.println(e.getMessage());
+        }
+        
+        return listConsultas;
+        
+    }
+    
+    public static List<Consulta> lePorCrmv(int crmv1, int crmv2) throws Exception {
+
+        List<Consulta> listConsultas = new ArrayList<>();
+
+        try {
+
+            String sql = "SELECT * FROM consulta WHERE Veterinario_idVeterinario IN(?, ?)";
+
+            connection = GerenteDeConexao.getConnection();
+
+            st = connection.prepareStatement(sql);
+
+            st.setInt(1, crmv1);
+            
+            st.setInt(2, crmv2);
+            
+            rs = st.executeQuery();
+
+            while (rs.next()) {
+
+                Consulta consult = new Consulta();
+
+                consult.setIdConsulta(rs.getInt("idConsulta"));
+
+                consult.setDataHora(rs.getString("data"));
+
+                consult.setProcedimento(rs.getString("Procedimento"));
+
+                consult.setVeterinario(VeterinarioDAO.leUm(rs.getInt("Veterinario_idVeterinario")));
+                
+                consult.setAtendente(AtendenteDAO.leUm(rs.getInt("Atendente_idAtendente")));
+                
+                consult.setEquino(EquinoDAO.leUm(rs.getInt("Equino_idEquino")));
+                
+                consult.setCanino(CaninoDAO.leUm(rs.getInt("Canino_idCanino")));
+                
+                consult.setFelino(FelinoDAO.leUm(rs.getInt("Felino_idFelino")));
+
+                if (rs.getInt("Equino_idEquino") > 0) {
+                    consult.setTipoPaciente(2);
+                } else if (rs.getInt("Canino_idCanino") > 0) {
+                    consult.setTipoPaciente(1);
+                } else if (rs.getInt("Felino_idFelino") > 0) {
+                    consult.setTipoPaciente(3);
+                } else
+                    consult.setTipoPaciente(0);
+                
+                listConsultas.add(consult);
+
+            }
+
+            st.close();
+
+        } catch (Exception e) {
+
+            System.out.println(e.getMessage());
+
+        }
+
+        return listConsultas;
+
+    }
+    
+    public static List<Consulta> lePorNaoEntre(int crmvA, int crmvB) throws Exception {
+
+        List<Consulta> listConsultas = new ArrayList<>();
+
+        try {
+
+            String sql = "SELECT * FROM consulta WHERE Veterinario_idVeterinario NOT BETWEEN ? AND ?";
+
+            connection = GerenteDeConexao.getConnection();
+
+            st = connection.prepareStatement(sql);
+
+            st.setInt(1, crmvA);
+            
+            st.setInt(2, crmvB);
+            
+            rs = st.executeQuery();
+
+            while (rs.next()) {
+
+                Consulta consult = new Consulta();
+
+                consult.setIdConsulta(rs.getInt("idConsulta"));
+
+                consult.setDataHora(rs.getString("data"));
+
+                consult.setProcedimento(rs.getString("Procedimento"));
+
+                consult.setVeterinario(VeterinarioDAO.leUm(rs.getInt("Veterinario_idVeterinario")));
+                
+                consult.setAtendente(AtendenteDAO.leUm(rs.getInt("Atendente_idAtendente")));
+                
+                consult.setEquino(EquinoDAO.leUm(rs.getInt("Equino_idEquino")));
+                
+                consult.setCanino(CaninoDAO.leUm(rs.getInt("Canino_idCanino")));
+                
+                consult.setFelino(FelinoDAO.leUm(rs.getInt("Felino_idFelino")));
+
+                if (rs.getInt("Equino_idEquino") > 0) {
+                    consult.setTipoPaciente(2);
+                } else if (rs.getInt("Canino_idCanino") > 0) {
+                    consult.setTipoPaciente(1);
+                } else if (rs.getInt("Felino_idFelino") > 0) {
+                    consult.setTipoPaciente(3);
+                } else
+                    consult.setTipoPaciente(0);
+                
+                listConsultas.add(consult);
+
+            }
+
+            st.close();
+
+        } catch (Exception e) {
+
+            System.out.println(e.getMessage());
+
+        }
+
+        return listConsultas;
+
+    }
+    
 }

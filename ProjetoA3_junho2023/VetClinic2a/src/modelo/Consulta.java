@@ -119,7 +119,7 @@ public class Consulta {
                "\nProcedimento(s):         " + procedimento +
                "\nDados do animal:         --------------------" + paciente() +
                "\nDados do atendente:      --------------------" + atendente +
-               "\nDados do Veterinário:    --------------------" + veterinario;
+               "\nDados do Veterinário:    --------------------" + veterinario + "\n";
     }
     
 }

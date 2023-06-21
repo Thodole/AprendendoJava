@@ -2,13 +2,13 @@ package testes.equino;
 
 import persistencia.EquinoDAO;
 
-public class TestaEquinoDAOaltera {
+public class TestaEquinoDAOaltera_AND {
 
     /**
      * @param args the command line arguments
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        System.out.println(EquinoDAO.altera(11, 12, "Alazão", 5));
+        System.out.println(EquinoDAO.alteraAnd(11, 1, "Alazão", 3, "Alasão"));
     }
 }

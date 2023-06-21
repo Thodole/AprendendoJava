@@ -151,6 +151,70 @@ public class AtendenteDAO {
         return ret;
 
     }
+    
+    public static int alteraNotIn(String nome, int idA, int idB) throws Exception {
+
+        int retorno = 0;
+
+        try {
+
+            String sql = "UPDATE atendente SET nome = ? WHERE idAtendente NOT IN(?, ?)";
+
+            connection = GerenteDeConexao.getConnection();
+
+            st = connection.prepareStatement(sql);
+            
+            st.setString(1, nome);
+
+            st.setInt(2, idA);
+            
+            st.setInt(3, idB);
+
+            retorno = st.executeUpdate();
+
+            st.close();
+
+        } catch (SQLException e) {
+
+            System.out.println(e.getMessage());
+
+        }
+
+        return retorno;
+
+    }
+    
+    public static int alteraAnd(String novoNome, int id, String nome) throws Exception {
+
+        int retorno = 0;
+
+        try {
+
+            String sql = "UPDATE atendente SET nome = ? WHERE idAtendente = ? AND nome = ?";
+
+            connection = GerenteDeConexao.getConnection();
+
+            st = connection.prepareStatement(sql);
+            
+            st.setString(1, novoNome);
+
+            st.setInt(2, id);
+            
+            st.setString(3, nome);
+
+            retorno = st.executeUpdate();
+
+            st.close();
+
+        } catch (SQLException e) {
+
+            System.out.println(e.getMessage());
+
+        }
+
+        return retorno;
+
+    }
 
     public static int exclui(int idAtend) throws Exception {
 

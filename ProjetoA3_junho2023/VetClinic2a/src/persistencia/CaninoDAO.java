@@ -126,7 +126,7 @@ public class CaninoDAO {
 
     }
 
-    public static int altera(int IdCanino, int novoIdCanino, String nome, int idade) throws Exception {
+    public static int altera(int novoIdCanino, String nome, int idade, int IdCanino) throws Exception {
 
         int ret = 0;
 
@@ -145,6 +145,74 @@ public class CaninoDAO {
             st.setInt(3, idade);
             
             st.setInt(4, IdCanino);
+
+            ret = st.executeUpdate();
+
+            st.close();
+
+        } catch (SQLException e) {
+
+            System.out.println(e.getMessage());
+
+        }
+
+        return ret;
+
+    }
+    
+    public static int alteraAnd(int IdCanino, int novoIdCanino, String novoNome, int idade, String nome) throws Exception {
+
+        int ret = 0;
+
+        try {
+
+            String sql = "UPDATE canino SET idCanino = ?, nome = ?, idade = ? WHERE idCanino = ? AND nome = ?";
+
+            connection = GerenteDeConexao.getConnection();
+
+            st = connection.prepareStatement(sql);
+            
+            st.setInt(1, novoIdCanino);
+            
+            st.setString(2, novoNome);
+
+            st.setInt(3, idade);
+            
+            st.setInt(4, IdCanino);
+            
+            st.setString(5, nome);
+
+            ret = st.executeUpdate();
+
+            st.close();
+
+        } catch (SQLException e) {
+
+            System.out.println(e.getMessage());
+
+        }
+
+        return ret;
+
+    }
+    
+    public static int alteraNotIn(String novoNome, int idA, int idB) throws Exception {
+
+        int ret = 0;
+
+        try {
+
+            String sql = "UPDATE canino SET nome = ? WHERE idCanino NOT IN(0, ?, ?)";
+
+            connection = GerenteDeConexao.getConnection();
+
+            st = connection.prepareStatement(sql);
+            
+            st.setString(1, novoNome);
+
+            st.setInt(2, idA);
+            
+            st.setInt(3, idB);
 
             ret = st.executeUpdate();
 

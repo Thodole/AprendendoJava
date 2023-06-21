@@ -2,7 +2,7 @@ package modelo;
 
 public class Felino extends Animal{
     
-    private int idFelino = 0;
+    private int idFelino;
 
     public Felino() {}
     

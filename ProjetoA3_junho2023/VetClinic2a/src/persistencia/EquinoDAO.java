@@ -126,7 +126,7 @@ public class EquinoDAO {
 
     }
 
-    public static int altera(int IdEquino, int novoIdEquino, String nome, int idade) throws Exception {
+    public static int altera(int novoIdEquino, String nome, int idade, int IdEquino) throws Exception {
 
         int retorno = 0;
 
@@ -157,6 +157,74 @@ public class EquinoDAO {
         }
 
         return retorno;
+
+    }
+    
+    public static int alteraAnd(int IdEquino, int novoIdEquino, String novoNome, int idade, String nome) throws Exception {
+
+        int ret = 0;
+
+        try {
+
+            String sql = "UPDATE equino SET idEquino = ?, nome = ?, idade = ? WHERE idEquino = ? AND nome = ?";
+
+            connection = GerenteDeConexao.getConnection();
+
+            st = connection.prepareStatement(sql);
+            
+            st.setInt(1, novoIdEquino);
+            
+            st.setString(2, novoNome);
+
+            st.setInt(3, idade);
+            
+            st.setInt(4, IdEquino);
+            
+            st.setString(5, nome);
+
+            ret = st.executeUpdate();
+
+            st.close();
+
+        } catch (SQLException e) {
+
+            System.out.println(e.getMessage());
+
+        }
+
+        return ret;
+
+    }
+    
+    public static int alteraNotIn(String novoNome, int idA, int idB) throws Exception {
+
+        int ret = 0;
+
+        try {
+
+            String sql = "UPDATE equino SET nome = ? WHERE idEquino NOT IN(0, ?, ?)";
+
+            connection = GerenteDeConexao.getConnection();
+
+            st = connection.prepareStatement(sql);
+            
+            st.setString(1, novoNome);
+
+            st.setInt(2, idA);
+            
+            st.setInt(3, idB);
+
+            ret = st.executeUpdate();
+
+            st.close();
+
+        } catch (SQLException e) {
+
+            System.out.println(e.getMessage());
+
+        }
+
+        return ret;
 
     }
 

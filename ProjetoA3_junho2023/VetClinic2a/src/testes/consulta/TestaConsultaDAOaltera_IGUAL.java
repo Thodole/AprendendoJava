@@ -2,7 +2,7 @@ package testes.consulta;
 
 import persistencia.ConsultaDAO;
 
-public class TestaConsultaDAOaltera {
+public class TestaConsultaDAOaltera_IGUAL {
 
     /**
      * @param args the command line arguments

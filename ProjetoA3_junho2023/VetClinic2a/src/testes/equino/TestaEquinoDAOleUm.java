@@ -9,6 +9,7 @@ public class TestaEquinoDAOleUm {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        System.out.println(EquinoDAO.leUm(12));
+        // Mostra o equino cuja ID for informada
+        System.out.println(EquinoDAO.leUm(3));
     }
 }

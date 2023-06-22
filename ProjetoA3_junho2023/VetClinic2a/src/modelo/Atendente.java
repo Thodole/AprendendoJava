@@ -31,7 +31,7 @@ public class Atendente {
     @Override
     public String toString() {
         return   "\nID do atendente:         " + getIdAtend()
-               + "\nNome do atendente:       " + getNome();
+               + "\nNome do atendente:       " + getNome() + "\n";
     }
     
 }

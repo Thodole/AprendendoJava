@@ -9,6 +9,7 @@ public class TestaAtendenteDAOaltera_AND {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        System.out.println(AtendenteDAO.alteraAnd("Sophia Silva", 2, "Sofia Silva"));
+        // Altera o nome de um atendente (informe: novo nome, ID e nome antigo)
+        System.out.println(AtendenteDAO.alteraAnd("Teste Atendente", 4, "Atendente Teste"));
     }
 }

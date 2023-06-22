@@ -9,6 +9,7 @@ public class TestaEquinoDAOexclui {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        System.out.println(EquinoDAO.exclui(12));
+        // Exclui equino cuja ID for informada
+        System.out.println(EquinoDAO.exclui(4));
     }
 }

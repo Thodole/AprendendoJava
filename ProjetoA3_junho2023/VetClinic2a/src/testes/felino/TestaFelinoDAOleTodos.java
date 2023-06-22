@@ -9,6 +9,7 @@ public class TestaFelinoDAOleTodos {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
+        // Informa todos os felinos cadastrados
         System.out.println(FelinoDAO.leTodos());
     }
 }

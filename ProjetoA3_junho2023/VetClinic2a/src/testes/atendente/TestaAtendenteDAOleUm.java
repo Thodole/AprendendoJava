@@ -9,6 +9,7 @@ public class TestaAtendenteDAOleUm {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        System.out.println(AtendenteDAO.leUm(1));
+        // Mostra o atendente cuja ID for informada
+        System.out.println(AtendenteDAO.leUm(2));
     }
 }

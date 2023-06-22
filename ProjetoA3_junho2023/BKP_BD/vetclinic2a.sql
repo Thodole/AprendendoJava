@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 21/06/2023 às 18:03
+-- Tempo de geração: 22/06/2023 às 13:39
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.1.17
 
@@ -59,8 +59,8 @@ CREATE TABLE `canino` (
 
 INSERT INTO `canino` (`idCanino`, `nome`, `idade`) VALUES
 (0, '', 0),
-(1, 'Punch', 1),
-(2, 'Pitucha', 1),
+(1, 'Punch', 2),
+(2, 'Pitucha', 5),
 (3, 'Spock', 1);
 
 -- --------------------------------------------------------
@@ -87,8 +87,8 @@ CREATE TABLE `consulta` (
 INSERT INTO `consulta` (`idConsulta`, `data`, `Procedimento`, `Veterinario_idVeterinario`, `Atendente_idAtendente`, `Equino_idEquino`, `Canino_idCanino`, `Felino_idFelino`) VALUES
 (1, '20/06/2023 - 14:20', 'Soro e medicação', 123451, 1, 1, 0, 0),
 (2, '20/06/2023 - 16:40', 'Rotina + escovação', 123452, 2, 2, 0, 0),
-(3, '20/06/2023 - 18:02', 'Rotina', 123453, 3, 3, 0, 0),
-(4, '21/06/2023 - 08:45', 'Consulta de rotina', 123452, 2, 0, 1, 0),
+(3, '20/06/2023 - 18:00', 'Rotina + escovação', 123453, 3, 3, 0, 0),
+(4, '21/06/2023 - 08:45', 'Soro e medicação', 123452, 2, 0, 1, 0),
 (5, '21/06/2023 - 10:30', 'Consulta de rotina', 123451, 1, 0, 2, 0);
 
 -- --------------------------------------------------------
@@ -109,9 +109,9 @@ CREATE TABLE `equino` (
 
 INSERT INTO `equino` (`idEquino`, `nome`, `idade`) VALUES
 (0, '', 0),
-(1, 'Alazão', 5),
+(1, 'Alazão', 3),
 (2, 'Pé de Pano', 5),
-(3, 'Scadufax', 5);
+(3, 'Scadufax', 6);
 
 -- --------------------------------------------------------
 
@@ -131,8 +131,8 @@ CREATE TABLE `felino` (
 
 INSERT INTO `felino` (`idFelino`, `nome`, `idade`) VALUES
 (0, '', 0),
-(1, 'Aroldo', 1),
-(2, 'Edgar', 1),
+(1, 'Aroldo', 2),
+(2, 'Edgar', 3),
 (3, 'Pam', 1);
 
 -- --------------------------------------------------------
@@ -217,13 +217,13 @@ ALTER TABLE `canino`
 -- AUTO_INCREMENT de tabela `equino`
 --
 ALTER TABLE `equino`
-  MODIFY `idEquino` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `idEquino` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de tabela `felino`
 --
 ALTER TABLE `felino`
-  MODIFY `idFelino` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `idFelino` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- Restrições para tabelas despejadas

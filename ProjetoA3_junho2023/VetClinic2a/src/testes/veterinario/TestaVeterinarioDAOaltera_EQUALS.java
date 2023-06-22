@@ -9,6 +9,7 @@ public class TestaVeterinarioDAOaltera_EQUALS {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        System.out.println(VeterinarioDAO.altera(123454, "Saulo Medeiros", 123456));
+        // Altera ID e nome de veter. (infomrme nova ID, novo nome e ID antiga)
+        System.out.println(VeterinarioDAO.altera(123454, "Saul Medeiros", 123454));
     }
 }

@@ -141,7 +141,7 @@ public class ConsultaDAO {
                                              "Equino_idEquino = ?, " +
                                              "Canino_idCanino = ?, " +
                                              "Felino_idFelino = ? " +
-                                             "WHERE idConsulta NOT IN (?, ?)";
+                                             "WHERE Veterinario_idVeterinario NOT IN (?, ?)";
 
             connection = GerenteDeConexao.getConnection();
 

@@ -10,10 +10,11 @@ public class TestaFelinoDAOgrava {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
+        // Cadastra novo felino (informe nova ID, nome e idade)
         Felino felino = new Felino();
-        felino.setIdFelino(0);
-        felino.setNome("");
-        felino.setIdade(0);
+        felino.setIdFelino(4);
+        felino.setNome("Felino Teste");
+        felino.setIdade(3);
         
         System.out.println(FelinoDAO.grava(felino));
     }

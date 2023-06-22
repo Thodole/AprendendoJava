@@ -9,6 +9,6 @@ public class TestaFelinoDAOexclui {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        System.out.println(FelinoDAO.exclui(11));
+        System.out.println(FelinoDAO.exclui(4));
     }
 }

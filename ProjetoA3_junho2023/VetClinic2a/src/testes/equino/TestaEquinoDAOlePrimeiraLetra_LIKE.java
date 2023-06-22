@@ -9,6 +9,7 @@ public class TestaEquinoDAOlePrimeiraLetra_LIKE {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
+        // Exibe equinos cujos nomes comecem com a letra informada
         System.out.println(EquinoDAO.leTodosPrimeiraLetra('P'));
     }
 }

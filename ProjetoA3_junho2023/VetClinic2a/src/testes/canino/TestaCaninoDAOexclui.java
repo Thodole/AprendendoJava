@@ -9,6 +9,7 @@ public class TestaCaninoDAOexclui {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        System.out.println(CaninoDAO.exclui(11));
+        // Exclui canino cuja ID for informada
+        System.out.println(CaninoDAO.exclui(4));
     }
 }

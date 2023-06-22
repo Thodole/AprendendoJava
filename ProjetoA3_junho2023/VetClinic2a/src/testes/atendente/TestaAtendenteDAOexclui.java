@@ -9,6 +9,7 @@ public class TestaAtendenteDAOexclui {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        System.out.println(AtendenteDAO.exclui(11));
+        // Exclui atendente por ID (informe ID do atendente a ser excluído)
+        System.out.println(AtendenteDAO.exclui(4));
     }
 }

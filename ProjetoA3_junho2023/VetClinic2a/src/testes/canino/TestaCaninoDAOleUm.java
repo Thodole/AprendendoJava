@@ -9,6 +9,7 @@ public class TestaCaninoDAOleUm {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        System.out.println(CaninoDAO.leUm(1));
+        // Mostra o canino cuja ID for informada
+        System.out.println(CaninoDAO.leUm(2));
     }
 }

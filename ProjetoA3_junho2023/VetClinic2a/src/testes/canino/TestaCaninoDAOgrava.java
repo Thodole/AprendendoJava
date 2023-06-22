@@ -10,10 +10,11 @@ public class TestaCaninoDAOgrava {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
+        // Cadastra novo canino (informe nova ID, nome e idade)
         Canino canino = new Canino();
-        canino.setIdCanino(0);
-        canino.setNome("");
-        canino.setIdade(0);
+        canino.setIdCanino(4);
+        canino.setNome("Canino Teste");
+        canino.setIdade(4);
         
         System.out.println(CaninoDAO.grava(canino));
     }

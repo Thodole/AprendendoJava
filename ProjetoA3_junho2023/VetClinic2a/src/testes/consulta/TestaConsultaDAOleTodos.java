@@ -9,6 +9,7 @@ public class TestaConsultaDAOleTodos {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
+        // Informa todas as consultas cadastrados
         System.out.println(ConsultaDAO.leTodos());
     }
 }

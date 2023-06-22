@@ -22,7 +22,7 @@ public class FelinoDAO {
 
         try {
 
-            String sql = "SELECT * FROM felino";
+            String sql = "SELECT * FROM felino WHERE idFelino != 0";
 
             connection = GerenteDeConexao.getConnection();
 

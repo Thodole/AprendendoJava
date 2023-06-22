@@ -9,6 +9,10 @@ public class TestaConsultaDAOlePorData_LIKE {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        System.out.println(ConsultaDAO.leTodosPorData("21/06/2023"));
+        /*
+            Exibe consultas realizadas na data informada.
+            Atenção! Mantenha esta formatação de data: "DD/MM/AAAA"
+        */
+        System.out.println(ConsultaDAO.leTodosPorData("20/06/2023"));
     }
 }

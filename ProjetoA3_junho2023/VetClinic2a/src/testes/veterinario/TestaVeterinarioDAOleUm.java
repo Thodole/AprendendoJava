@@ -9,6 +9,7 @@ public class TestaVeterinarioDAOleUm {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
+        // Mostra o veterinario cuja ID for informada
         System.out.println(VeterinarioDAO.leUm(123452));
     }
 }

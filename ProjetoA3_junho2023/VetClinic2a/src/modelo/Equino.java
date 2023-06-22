@@ -25,7 +25,7 @@ public class Equino extends Animal{
     public String toString() {
         return "\nID do equino:            " + idEquino +
                "\nNome do equino:          " + getNome() +
-               "\nIdade do animal:         " + getIdade() + " ano(s)";
+               "\nIdade do animal:         " + getIdade() + " ano(s)\n";
     }
     
 }

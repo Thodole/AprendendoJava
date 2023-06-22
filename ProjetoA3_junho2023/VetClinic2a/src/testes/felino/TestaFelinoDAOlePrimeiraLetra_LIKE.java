@@ -9,6 +9,7 @@ public class TestaFelinoDAOlePrimeiraLetra_LIKE {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
+        // Exibe felinos cujos nomes comecem com a letra informada
         System.out.println(FelinoDAO.leTodosPrimeiraLetra('E'));
     }
 }

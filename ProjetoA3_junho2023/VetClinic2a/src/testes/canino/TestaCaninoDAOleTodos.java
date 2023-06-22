@@ -9,6 +9,7 @@ public class TestaCaninoDAOleTodos {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
+        // Informa todos os caninos cadastrados
         System.out.println(CaninoDAO.leTodos());
     }
 }

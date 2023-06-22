@@ -9,6 +9,7 @@ public class TestaVeterinarioDAOaltera_AND {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        System.out.println(VeterinarioDAO.alteraAnd("Saulo Medeiros", 123456, "Saulo Merdeiros"));
+        // Altera o nome de um veterinario (informe: novo nome, ID e nome antigo)
+        System.out.println(VeterinarioDAO.alteraAnd("Saulo Medeiros", 123454, "Saulo Merdeiros"));
     }
 }

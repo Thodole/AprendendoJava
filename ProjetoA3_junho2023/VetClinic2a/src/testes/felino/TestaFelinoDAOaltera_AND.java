@@ -9,6 +9,9 @@ public class TestaFelinoDAOaltera_AND {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        System.out.println(FelinoDAO.alteraAnd(1, "Aroldo", 2, 1, "Arold"));
+        /* Altera dados de um felino registrado (informe nova ID, novo nome,
+        nova idade, ID original e nome original do felino)
+        */
+        System.out.println(FelinoDAO.alteraAnd(4, "Teste Felino", 2, 4, "Felino Teste"));
     }
 }

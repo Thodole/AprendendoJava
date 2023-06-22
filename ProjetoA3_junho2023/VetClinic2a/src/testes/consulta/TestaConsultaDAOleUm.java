@@ -9,6 +9,7 @@ public class TestaConsultaDAOleUm {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        System.out.println(ConsultaDAO.leUm(1));
+        // Mostra a consulta cuja ID for informada
+        System.out.println(ConsultaDAO.leUm(5));
     }
 }

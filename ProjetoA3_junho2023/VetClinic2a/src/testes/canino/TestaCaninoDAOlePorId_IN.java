@@ -9,7 +9,7 @@ public class TestaCaninoDAOlePorId_IN {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        System.out.println(CaninoDAO.lePorId(1, 2));
+        // Consulta e exibe caninos pertencentes ao grupo de IDs informadas
+        System.out.println(CaninoDAO.lePorId(1, 3));
     }
-    
 }

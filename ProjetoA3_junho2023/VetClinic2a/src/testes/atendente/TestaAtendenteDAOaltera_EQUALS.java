@@ -9,6 +9,7 @@ public class TestaAtendenteDAOaltera_EQUALS {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        System.out.println(AtendenteDAO.altera(3, "William Barbosa", 3));
+        // Altera ID e nome de atend. (infomrme nova ID, novo nome e ID antiga)
+        System.out.println(AtendenteDAO.altera(4, "Atendente Teste", 4));
     }
 }

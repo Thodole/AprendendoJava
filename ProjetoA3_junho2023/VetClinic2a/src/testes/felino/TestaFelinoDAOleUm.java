@@ -9,6 +9,7 @@ public class TestaFelinoDAOleUm {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
+        // Mostra o felino cuja ID for informada
         System.out.println(FelinoDAO.leUm(3));
     }
 }

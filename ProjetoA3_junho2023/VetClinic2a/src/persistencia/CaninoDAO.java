@@ -22,7 +22,7 @@ public class CaninoDAO {
 
         try {
 
-            String sql = "SELECT * FROM canino";
+            String sql = "SELECT * FROM canino WHERE idCanino != 0";
 
             connection = GerenteDeConexao.getConnection();
 
@@ -160,7 +160,7 @@ public class CaninoDAO {
 
     }
     
-    public static int alteraAnd(int IdCanino, int novoIdCanino, String novoNome, int idade, String nome) throws Exception {
+    public static int alteraAnd(int novoIdCanino, String novoNome, int idade, int IdCanino, String nome) throws Exception {
 
         int ret = 0;
 

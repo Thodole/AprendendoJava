@@ -9,6 +9,10 @@ public class TestaEquinoDAOaltera_EQUALS {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        System.out.println(EquinoDAO.altera(3, "Scadufax", 6, 33));
+        /*
+            Altera dados de um equino registrado (informe nova ID, novo nome,
+            nova idade, ID original)
+        */
+        System.out.println(EquinoDAO.altera(4, "Equino Teste", 6, 4));
     }
 }

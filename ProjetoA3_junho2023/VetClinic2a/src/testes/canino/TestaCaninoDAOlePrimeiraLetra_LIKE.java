@@ -9,6 +9,7 @@ public class TestaCaninoDAOlePrimeiraLetra_LIKE {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
+        // Exibe caninos cujos nomes comecem com a letra informada
         System.out.println(CaninoDAO.leTodosPrimeiraLetra('P'));
     }
 }

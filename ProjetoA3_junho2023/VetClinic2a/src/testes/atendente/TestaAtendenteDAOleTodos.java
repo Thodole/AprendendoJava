@@ -9,6 +9,7 @@ public class TestaAtendenteDAOleTodos {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
+        // Informa todos os atendentes cadastrados
         System.out.println(AtendenteDAO.leTodos());
     }
 }

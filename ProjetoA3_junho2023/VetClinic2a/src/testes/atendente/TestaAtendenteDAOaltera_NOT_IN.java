@@ -9,6 +9,10 @@ public class TestaAtendenteDAOaltera_NOT_IN {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        System.out.println(AtendenteDAO.alteraNotIn("Larissa Silva", 2, 3));
+        /* Altera o nome de um atendente não pertencente ao grupo informado 
+           Informe o nomvo nome e a ID dos atendentes que não serão alterados
+           ATENÇÃO! Somente use este método se houver 3 atendentes listados.
+        */
+        System.out.println(AtendenteDAO.alteraNotIn("Atendente Teste", 2, 3));
     }
 }

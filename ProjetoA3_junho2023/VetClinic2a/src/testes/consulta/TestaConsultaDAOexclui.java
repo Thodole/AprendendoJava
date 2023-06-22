@@ -9,6 +9,7 @@ public class TestaConsultaDAOexclui {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        System.out.println(ConsultaDAO.exclui(11));
+        // Exclui a consulta cuja ID for informada
+        System.out.println(ConsultaDAO.exclui(6));
     }
 }

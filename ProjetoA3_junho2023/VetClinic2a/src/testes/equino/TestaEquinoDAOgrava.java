@@ -10,10 +10,11 @@ public class TestaEquinoDAOgrava {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
+        // Cadastra novo equino (informe nova ID, nome e idade)
         Equino equino = new Equino();
-        equino.setIdEquino(0);
-        equino.setNome("");
-        equino.setIdade(0);
+        equino.setIdEquino(4);
+        equino.setNome("Equino Teste");
+        equino.setIdade(5);
         
         System.out.println(EquinoDAO.grava(equino));
     }

@@ -15,6 +15,7 @@ public class TestaConsultaDAOgrava {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
+        // Cadastra novo consulta (informe os seguintes dados)
         Consulta consulta = new Consulta();
         consulta.setIdConsulta(6);
         consulta.setDataHora("21/06/2023 - 17:30");
@@ -32,7 +33,7 @@ public class TestaConsultaDAOgrava {
         consulta.setEquino(equino);
         
         Canino canino = new Canino();
-        canino.setIdCanino(3);
+        canino.setIdCanino(3); // Informe esse dado apenas p/ o devido paciente
         consulta.setCanino(canino);
         
         Felino felino = new Felino();

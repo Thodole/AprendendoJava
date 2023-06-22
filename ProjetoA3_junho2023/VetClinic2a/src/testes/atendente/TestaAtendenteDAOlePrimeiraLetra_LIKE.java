@@ -9,6 +9,7 @@ public class TestaAtendenteDAOlePrimeiraLetra_LIKE {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
+        // Exibe atendentes cujos nomes comecem com a letra informada
         System.out.println(AtendenteDAO.leTodosPrimeiraLetra('L'));
     }
 }

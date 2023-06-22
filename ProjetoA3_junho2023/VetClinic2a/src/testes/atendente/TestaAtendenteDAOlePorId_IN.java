@@ -9,6 +9,7 @@ public class TestaAtendenteDAOlePorId_IN {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
+        // Consulta e exibe atendentes pertencentes ao grupo de IDs informadas
         System.out.println(AtendenteDAO.lePorId(2, 3));
     }
     

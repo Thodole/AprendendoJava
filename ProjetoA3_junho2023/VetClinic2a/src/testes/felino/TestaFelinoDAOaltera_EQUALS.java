@@ -9,6 +9,9 @@ public class TestaFelinoDAOaltera_EQUALS {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        System.out.println(FelinoDAO.altera(2, "Edgar", 3, 22));
+        /* Altera dados de um felino registrado (informe nova ID, novo nome,
+        nova idade, ID original)
+        */
+        System.out.println(FelinoDAO.altera(4, "Felino Teste", 3, 4));
     }
 }
